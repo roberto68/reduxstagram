@@ -2,11 +2,13 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'source-map',
+//  devtool: 'source-map',
+  devtool: 'eval',  
+//  devtool: 'cheap-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
     './client/reduxstagram'
-  ],
+  ],	
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -14,7 +16,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+//    new webpack.NoErrorsPlugin(), 
+  //  new BellOnBundlerErrorPlugin()
   ],
   module: {
     loaders: [
